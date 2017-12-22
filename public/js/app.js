@@ -1636,6 +1636,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -1673,6 +1674,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             Author: "Maël"
         };
+    },
+    use: {
+        shared: shared
     }
 });
 
@@ -33007,9 +33011,13 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
         _c("div", { staticClass: "panel panel-default" }, [
-          _c("div", { staticClass: "panel-heading" }, [
-            _vm._v("Example Component")
-          ]),
+          !_vm.test
+            ? _c("div", { staticClass: "panel-heading" }, [
+                _vm._v(
+                  "\n                    Example Component\n                "
+                )
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c(
             "div",
