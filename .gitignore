@@ -7,3 +7,6 @@ composer.phar
 package.tar
 /packages.json
 /.phpunit
+var/cache/
+docker/.data/
+docker/logs/
