@@ -10,15 +10,18 @@ Encore
     // uncomment to create hashed filenames (e.g. app.abc123.css)
     // .enableVersioning(Encore.isProduction())
 
-    // uncomment to define the assets of the project
     .addEntry('js/app', './assets/js/app.js')
+    .enableVueLoader()
     .addStyleEntry('css/app', './assets/sass/app.sass')
+    .enableSassLoader()
+    .autoProvidejQuery();
 
-    // uncomment if you use Sass/SCSS files
-     .enableSassLoader()
 
-    // uncomment for legacy applications that require $/jQuery as a global variable
-     .autoProvidejQuery()
-;
-
-module.exports = Encore.getWebpackConfig();
+module.exports = {
+    Encore.getWebpackConfig();
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+        }
+    }
+}
