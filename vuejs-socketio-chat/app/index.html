@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="npm/bulma/css/bulma.css">
+    <link rel="stylesheet" href="npm/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <!-- Chat Box goes here -->
+        <div class="columns">
+            <div class="column is-two-thirds">
+
+                <!-- inputs user name -->
+                <transition name="fade">
+                    <input-name v-bind:is-logged="isLogged" v-on:set-name="setName"></input-name>
+                </transition>
+
+                <!-- message list -->
+                <transition name="slide-fade">
+                    <div class="box" v-show="isLogged">
+                        <div class="messages">
+                            <ul>
+                                <li v-for="message in messages">
+                                    <message v-bind:message-data="message"></message>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- inputs new message -->
+                        <input-message v-on:send-message="sendMessage"></input-message>
+                    </div>
+                </transition>
+            </div>
+
+            <!-- user list -->
+            <div class="column">
+                <users v-bind:users="users"></users>
+            </div>
+        </div>
+    </div>
+
+    <script src="npm/vue/dist/vue.js"></script>
+    <script src="npm/socket.io-client/dist/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
