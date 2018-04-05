@@ -16,12 +16,11 @@ Encore
     .enableSassLoader()
     .autoProvidejQuery();
 
-
-module.exports = {
-    Encore.getWebpackConfig();
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
-        }
+let config = Encore.getWebpackConfig();
+config.resolve = {
+    alias: {
+        'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
     }
 }
+
+module.exports = config
