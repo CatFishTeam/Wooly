@@ -1,14 +1,17 @@
 {% extends 'website/layout.html.twig' %}
 
-{% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-2">
-                ici
-            </div>
-            <div class="col-xs-10" style="background: red;">
-                coucou
-            </div>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-5" style="background: red;">
+            Slider (last level etc)
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <news></news>
+        </div>
+        <div class="col-xs-12 col-md-4" style="background: blue;">
+            Character Home
         </div>
     </div>
+</div>
 {% endblock %}

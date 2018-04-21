@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js encore dev --watch
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js encore production
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands
@@ -16,7 +16,10 @@ Platform:
 npm manifest: 
   {
       "devDependencies": {
-          "@symfony/webpack-encore": "^0.17.0"
+          "@symfony/webpack-encore": "^0.17.0",
+          "vue": "^2.5.16",
+          "vue-loader": "^14.2.2",
+          "vue-template-compiler": "^2.5.16"
       },
       "license": "UNLICENSED",
       "private": true,
@@ -27,8 +30,12 @@ npm manifest:
           "build": "encore production"
       },
       "dependencies": {
+          "ajv": "^6.4.0",
           "bootstrap": "^4.0.0",
-          "popper.js": "^1.14.1"
+          "jquery": "^3.3.1",
+          "node-sass": "^4.8.3",
+          "popper.js": "^1.14.1",
+          "sass-loader": "^6.0.7"
       }
   }
 
@@ -42,7 +49,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c /Users/mael/Sites/Wooly/node_modules/.bin/encore dev --watch
+  Arguments: -c /Users/mael/Sites/Wooly/node_modules/.bin/encore production
   Directory: /Users/mael/Sites/Wooly
   Output:
   
