@@ -1,6 +1,6 @@
 (function(){
 
-    var socket = io();
+    var socket = io({ path: document.location.pathname});
 
     // Message Component
     Vue.component('message' , {
@@ -141,3 +141,4 @@
     });
 
 })();
+
