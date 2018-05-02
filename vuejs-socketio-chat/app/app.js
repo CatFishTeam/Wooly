@@ -1,3 +1,18 @@
+import io from 'socket.io-client';
+
+const namespace = '/level/2'
+
+const socket = io.connect(`${serverIoUrl}/${namespace}`, {
+    query: `ns=${namespace}`,
+    resource: 'socket.io'
+});
+
+socket.on('topic', () => {
+    console.log('coucou')
+    // implement your client side logic
+});
+
+/*
 (function(){
 
     var socket = io({ path: document.location.pathname});
@@ -141,4 +156,4 @@
     });
 
 })();
-
+*/

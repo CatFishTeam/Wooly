@@ -1,3 +1,14 @@
+// server.js
+const app = require('express')();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+
+//  we will load the io-handler module and will attach the connection listeners
+require('./io-handler')(io);
+
+server.listen(8888);
+
+/*
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
@@ -10,9 +21,6 @@ app.use(favicon(__dirname + '/app/images/favicon.ico'));
 app.use('/npm', express.static('node_modules'));
 app.use(express.static('app'));
 
-app.get('/', function(request, response) {
-    response.sendFile(__dirname + '/app/index.html');
-});
 
 app.get('/level/*', function(request, response){
     console.log(request.url);
@@ -20,7 +28,6 @@ app.get('/level/*', function(request, response){
     //Split by namespace
     var messages = [];
     var users = [];
-
     io.of(request.url)
         .on('connection', function(socket) {
 
@@ -47,8 +54,11 @@ app.get('/level/*', function(request, response){
             io.emit('update-users', users);
         });
     });
+
+    response.sendFile(__dirname + '/app/index.html');
 })
 
 server.listen(app.get('port'), function() {
   console.log('Node app is running on port ', app.get('port'));
 });
+*/
