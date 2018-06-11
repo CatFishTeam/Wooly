@@ -6,13 +6,8 @@ import Navbar from './components/navbar.vue'
 import News from './components/news.vue'
 
 flashAlerts.forEach(function(flashAlert){
-    //console.log(flashAlert);
-    console.log(Object.keys(flashAlert)[0])
-    console.log(Object.values(flashAlert)[0])
     toastr[Object.keys(flashAlert)[0]](Object.values(flashAlert)[0])
 })
-
-//readFlashMessage()
 
 var vm = new Vue({
     el: '#app',

@@ -12,11 +12,9 @@
             let flashAlerts = [];
             {% for type, messages in app.flashes %}
                 {% for message in messages %}
-                    if(flashAlerts.hasOwnProperty([ "{{ type }}" ])){ console.log('true') }
                     flashAlerts.push( { ["{{ type }}"]: "{{ message }}" } );
                 {% endfor %}
             {% endfor %}
-            //toastr.flashAlert.key()(flashAlert.values());
         </script>
         {% block body %}
             <div id="app">
