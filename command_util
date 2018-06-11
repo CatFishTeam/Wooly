@@ -1,0 +1,1 @@
+liste des routes: php bin/console debug:router
