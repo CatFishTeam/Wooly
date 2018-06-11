@@ -10,4 +10,4 @@ package.tar
 var/cache/
 docker/.data/
 docker/logs/
-node_modules/
+node_modules/*
