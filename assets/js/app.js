@@ -4,6 +4,7 @@ import Vue from 'vue'
 
 import Navbar from './components/navbar.vue'
 import News from './components/news.vue'
+import HommeSlider from './components/homme-slider.vue'
 
 flashAlerts.forEach(function(flashAlert){
     toastr[Object.keys(flashAlert)[0]](Object.values(flashAlert)[0])
@@ -14,6 +15,7 @@ var vm = new Vue({
     components: {
         Navbar,
         News,
+        HommeSlider
     },
     computed: {
     },
