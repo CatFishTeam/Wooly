@@ -12,3 +12,4 @@ docker/.data/
 docker/logs/
 node_modules/*
 var/log/*
+.idea/*
