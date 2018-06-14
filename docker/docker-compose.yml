@@ -35,4 +35,4 @@ services:
             - ./elk/logstash/patterns:/opt/logstash/patterns
         volumes_from:
             - php
-- nginx
+            - nginx
