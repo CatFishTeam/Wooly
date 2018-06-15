@@ -24,10 +24,16 @@ class User extends BaseUser
      */
     private $characters;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Level", mappedBy="creator_id")
+     */
+    private $levels;
+
     public function __construct()
     {
         parent::__construct();
         $this->characters = new ArrayCollection();
+        $this->levels = new ArrayCollection();
         // your own logic
     }
 
@@ -56,6 +62,37 @@ class User extends BaseUser
             // set the owning side to null (unless already changed)
             if ($character->getUserId() === $this) {
                 $character->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Level[]
+     */
+    public function getLevels(): Collection
+    {
+        return $this->levels;
+    }
+
+    public function addLevel(Level $level): self
+    {
+        if (!$this->levels->contains($level)) {
+            $this->levels[] = $level;
+            $level->setCreatorId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLevel(Level $level): self
+    {
+        if ($this->levels->contains($level)) {
+            $this->levels->removeElement($level);
+            // set the owning side to null (unless already changed)
+            if ($level->getCreatorId() === $this) {
+                $level->setCreatorId(null);
             }
         }
 
