@@ -8,3 +8,7 @@ Add database
   - Run `docker exec -ti docker_php_1 bash`
   - Inside the container run : `php bin/console doctrine:migrations:migrate`
   - To load fixtures : `php bin/console doctrine:fixtures:load --append`
+
+# Connect as admin
+  - If you've runned the fixtures you can login with `admin:admin` and access `/admin`
+  - If this is not the case and you just want to use your user : you can run from the container : `fos:user:promote <your_pseudo> ROLE_ADMIN` 
