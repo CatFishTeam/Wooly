@@ -41,3 +41,9 @@
         }
     }
 </script>
+
+<style scoped lang="sass">
+    .swiper-slide
+        img
+            max-width: 100%
+</style>
