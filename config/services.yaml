@@ -29,3 +29,5 @@ services:
 easy_admin:
     entities:
         - App\Entity\User
+        - App\Entity\Level
+        - App\Entity\Character
