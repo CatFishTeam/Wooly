@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7">
+                <img src="{{ level.thumbnail }}" alt="???" >
+            </div>
+            <div class="col-5">
+                <h2> level.title </h2>
+                <p> level.description </p>
+                <p>Create by {{ level.creator.username }} at :{{ level.createdAt|date('Y-m-d') }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
