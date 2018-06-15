@@ -4,29 +4,18 @@ namespace App\DataFixtures;
 use App\Entity\Level;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManager;
 use Faker;
 
-class FakerFixtures extends Fixture
+class LevelFixtures extends Fixture  implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 10; $i++) {
-            $user = new User();
-            $user->setUsername($faker->userName);
-            $user->setUsernameCanonical(strtolower($user->getUsername()));
-            $user->setEmail($faker->email);
-            $user->setEmailCanonical(strtolower($user->getEmail()));
-            $user->setEnabled(true);
-            $user->setPassword($faker->password);
-            $user->setPlainPassword($faker->password);
-            $user->setLastLogin($faker->dateTimeBetween($startDate = '-1 months', $endDate = 'now', $timezone = null));
-            $user->setSalt("azertyuiop1234567890");
-            $manager->persist($user);
-        }
-
+        $user = $manager->getRepository(User::class)->find(1);
 
         for ($i = 0; $i < 20; $i++) {
             $level = new Level();
@@ -38,10 +27,18 @@ class FakerFixtures extends Fixture
             $level->setUpdatedAt($level->getCreatedAt());
             $level->setPlayed($faker->numberBetween(0, 100));
             $level->setFinished($faker->numberBetween(0, 100));
-            $level->setCreatorId(new User($faker->randomDigit));
+            $level->setCreatorId($user);
+
             $manager->persist($level);
+            $manager->flush();
         }
 
-        $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return array(
+            UserFixtures::class,
+        );
     }
 }
