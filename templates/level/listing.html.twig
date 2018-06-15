@@ -2,6 +2,7 @@
 
 {% block content %}
     <div class="container-fluid">
+        {% for level in levels %}
         <div class="row">
             <div class="col-7">
                 <img src="{{ level.thumbnail }}" alt="???" >
@@ -13,5 +14,7 @@
                 <p>Finished : {{ level.finished }}/{{ level.played }}</p>
             </div>
         </div>
+        {% endfor %}
     </div>
+
 {% endblock %}

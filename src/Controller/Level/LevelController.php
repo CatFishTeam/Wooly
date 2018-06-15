@@ -10,11 +10,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class LevelController extends Controller
 {
     /**
-     * @Route("/level/{id}", requirements={"id" = "\d+"}, name="level")
+     * @Route("/level/{id}", requirements={"id" = "\d+"}, name="levelIndex")
      */
     public function index(Level $level)
     {
-        dump($level);
         return $this->render('level/index.html.twig', ['level' => $level]);
+    }
+
+    /**
+     * @Route("/levels", name="levelListing")
+     */
+    public function listing()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $levels = $entityManager->getRepository(Level::class)->findAll();
+        dump($levels);
+        return $this->render('level/listing.html.twig', ['levels' => $levels]);
     }
 }
