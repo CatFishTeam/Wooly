@@ -13,3 +13,6 @@ docker/logs/
 node_modules/*
 .idea/*
 var/log/
+
+# Juste pcq Ony il est relou
+docker/docker-compose.yml
