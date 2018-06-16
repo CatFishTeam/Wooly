@@ -60,7 +60,7 @@ class Level
      * @ORM\ManyToOne(targetEntity="App\Entity\User",cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $creator;
+    private $user;
 
     public function getId()
     {
@@ -163,14 +163,14 @@ class Level
         return $this;
     }
 
-    public function getCreator(): ?User
+    public function getUser(): ?User
     {
-        return $this->creator;
+        return $this->user;
     }
 
-    public function setCreatorId(?User $creator): self
+    public function setUserId(?User $user): self
     {
-        $this->creator = $creator;
+        $this->user = $user;
 
         return $this;
     }
