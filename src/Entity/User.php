@@ -25,7 +25,7 @@ class User extends BaseUser
     private $characters;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Level", mappedBy="creator_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\Level", mappedBy="user_id")
      */
     private $levels;
 
@@ -80,7 +80,7 @@ class User extends BaseUser
     {
         if (!$this->levels->contains($level)) {
             $this->levels[] = $level;
-            $level->setCreatorId($this);
+            $level->setUserId($this);
         }
 
         return $this;
@@ -91,8 +91,8 @@ class User extends BaseUser
         if ($this->levels->contains($level)) {
             $this->levels->removeElement($level);
             // set the owning side to null (unless already changed)
-            if ($level->getCreatorId() === $this) {
-                $level->setCreatorId(null);
+            if ($level->getUserId() === $this) {
+                $level->setUserId(null);
             }
         }
 

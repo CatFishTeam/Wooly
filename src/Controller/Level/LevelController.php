@@ -24,7 +24,6 @@ class LevelController extends Controller
     {
         $entityManager = $this->getDoctrine()->getManager();
         $levels = $entityManager->getRepository(Level::class)->findAll();
-        dump($levels);
         return $this->render('level/listing.html.twig', ['levels' => $levels]);
     }
 }
