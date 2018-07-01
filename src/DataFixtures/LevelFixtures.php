@@ -27,7 +27,7 @@ class LevelFixtures extends Fixture  implements DependentFixtureInterface
             $level->setUpdatedAt($level->getCreatedAt());
             $level->setPlayed($faker->numberBetween(0, 100));
             $level->setFinished($faker->numberBetween(0, 100));
-            $level->setCreatorId($user);
+            $level->setUserId($user);
 
             $manager->persist($level);
             $manager->flush();
