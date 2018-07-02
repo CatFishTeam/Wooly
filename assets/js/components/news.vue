@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="border rounded p-2" id="news">
         <p>Ceci est notre bar de news</p>
         <ul>
             <li v-for="n in news">
