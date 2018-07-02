@@ -3,9 +3,10 @@ import toastr from 'toastr'
 import 'rateyo/src/jquery.rateyo'
 import Vue from 'vue'
 
+import HeaderArea from './components/header-area.vue'
 import Navbar from './components/navbar.vue'
 import News from './components/news.vue'
-import HommeSlider from './components/homme-slider.vue'
+import HomeSlider from './components/home-slider.vue'
 
 flashAlerts.forEach(function(flashAlert){
     toastr[Object.keys(flashAlert)[0]](Object.values(flashAlert)[0])
@@ -14,9 +15,10 @@ flashAlerts.forEach(function(flashAlert){
 var vm = new Vue({
     el: '#app',
     components: {
+        HeaderArea,
         Navbar,
         News,
-        HommeSlider
+        HomeSlider
     },
     computed: {
     },

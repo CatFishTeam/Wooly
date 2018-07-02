@@ -27,7 +27,7 @@
     window.Swiper = Swiper
 
     export default {
-        name: "homme-slider",
+        name: "home-slider",
         mounted: function () {
             this.$nextTick(function () {
                 // Code that will run only after the
