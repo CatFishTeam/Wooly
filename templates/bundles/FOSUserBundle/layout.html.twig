@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Wooly{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/js/app.css') }}">
+    {% endblock %}
+</head>
+<body>
+<script>
+    let flashAlerts = [];
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.flashes %}
+            {% for message in messages %}
+                flashAlerts.push( { ["{{ type }}"]: "{{ message }}" } );
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+</script>
+{% block body %}
+    <div id="app">
+        <navbar
+                user="{{ app.user }}"
+                ref="navbar"
+        >
+        </navbar>
+        {% if(is_granted("IS_AUTHENTICATED_REMEMBERED")) %}
+            YOLO
+        {% else %}
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="card card-theme">
+                            <div class="card-header text-white">
+                                <div class="card-header-title">
+                                    Connectez-vous
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form action="/login_check" method="post">
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input class="form-control" id="username" name="_username" value="" required="required" autocomplete="username" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input class="form-control" id="password" name="_password" required="required" autocomplete="current-password" type="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="btn btn-primary" id="_submit" name="_submit" value="Log in" type="submit">
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="remember_me" id="remember_me" name="_remember_me" value="on" >
+                                        <label class="custom-control-label" for="remember_me">Remember me</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {# {% block fos_user_content %}{% endblock %} #}
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('build/js/app.js') }}"></script>
+{% endblock %}
+</body>
+</html>
