@@ -1,5 +1,6 @@
 import 'bootstrap'
 import toastr from 'toastr'
+import 'rateyo/src/jquery.rateyo'
 import Vue from 'vue'
 
 import Navbar from './components/navbar.vue'
@@ -8,7 +9,7 @@ import HommeSlider from './components/homme-slider.vue'
 
 flashAlerts.forEach(function(flashAlert){
     toastr[Object.keys(flashAlert)[0]](Object.values(flashAlert)[0])
-})
+});
 
 var vm = new Vue({
     el: '#app',
@@ -34,4 +35,16 @@ var vm = new Vue({
 
         })
     }
-})
+});
+
+$(function(){
+    const levels = $(".levels .rateYo");
+    Object.keys(levels).forEach(function(key) {
+        let rating = $(levels[key]).data('rating')
+        $(levels[key]).rateYo({
+            ratedFill: "#e780d5",
+            readOnly: true,
+            rating: rating
+        });
+    });
+});

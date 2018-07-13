@@ -24,7 +24,13 @@ let config = Encore.getWebpackConfig();
 config.resolve = {
     alias: {
         'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
-    }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
+    ]
 }
 /*
 config.plugins.push(new BrowserSyncPlugin(

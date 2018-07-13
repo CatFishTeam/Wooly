@@ -2,18 +2,18 @@
 
 {% block content %}
     <div class="container-fluid">
-        <div class="row">
+        <div class="row levels">
             {% for level in levels %}
-                <div class="col-4">
-                    <div class="row" style="border: 2px solid yellow; border-radius: 25px; overflow: hidden">
-                        <a class="col-7"  href="/level/{{ level.id }}" style="padding: 0">
-                            <img src="{{ level.thumbnail }}" alt="???" style="height: 100%; object-fit: cover;">
+                <div class="col-4 levels--level">
+                    <div class="row">
+                        <a class="col-7"  href="/level/{{ level.id }}">
+                            <img src="{{ level.thumbnail }}" alt="{# {{ level.alt }} #}">
                         </a>
                         <div class="col-5">
                             <h4> level.title </h4>
                             <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a>
                             <p> level.description </p>
-                            <p>*****</p>
+                            <p class="rateYo" data-rating="1.6"></p>
                         </div>
                     </div>
                 </div>
