@@ -1,0 +1,36 @@
+
+
+nav {
+  padding: 0 12%;
+  position: relative;
+}
+
+#menu {
+  margin: 20px 0;
+}
+
+#menu ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#menu ul li {
+  list-style-type: none;
+}
+
+#menu ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #4A4A4A;
+}
+
+.greenline {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid  #AAD77B;
+}
+

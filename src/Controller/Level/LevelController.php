@@ -11,6 +11,8 @@ class LevelController extends Controller
 {
     /**
      * @Route("/level/{id}", requirements={"id" = "\d+"}, name="levelIndex")
+     * @param Level $level
+     * @return Response
      */
     public function index(Level $level)
     {

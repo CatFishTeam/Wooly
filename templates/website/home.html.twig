@@ -9,9 +9,19 @@
         <div class="col-xs-12 col-md-3">
             <news></news>
         </div>
-        <div class="col-xs-12 col-md-4" style="background: blue;">
-            Character Home
-        </div>
+    </div>
+    <div class="row">
+        {% for level in levels %}
+            <div class="col-md-4 col-sm-6">
+                <h2>{{ level.name }}</h2>
+                <div class="thumbnail">
+                    <img src="//editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <p><a href="{{ path('levelListing') }}">Voir tous les niveaux</a></p>
     </div>
 </div>
 {% endblock %}

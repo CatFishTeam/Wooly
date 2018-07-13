@@ -4,7 +4,7 @@
             <div class="logo">
                 <img src="images/cat.svg" alt="Logo Wooly">
             </div>
-            <h1 class="sitetitle">Wooly</h1>
+            <h1 class="sitetitle"><a href="/">Wooly</a></h1>
         </div>
     </header>
 </template>
@@ -32,7 +32,11 @@
 
     h1.sitetitle {
         font-size: 38px;
-        color: #AAD77B;
         margin-left: 30px;
+    }
+
+    h1 a {
+        text-decoration: none;
+        color: #AAD77B;
     }
 </style>
