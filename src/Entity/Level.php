@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,12 +19,12 @@ class Level
     private $id;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="text")
      */
     private $data;
 
     /**
-     * @ORM\Column(type="json", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $best;
 
@@ -57,12 +59,13 @@ class Level
     private $finished;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User",cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="levels", fetch="EAGER")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
-    public function getId()
+
+public function getId()
     {
         return $this->id;
     }

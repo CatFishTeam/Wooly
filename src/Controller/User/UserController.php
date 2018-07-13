@@ -12,7 +12,6 @@ class UserController extends Controller
      */
     public function index(User $user)
     {
-        dump($user);
         $levels = $user->getLevels();
         dump($levels);
         return $this->render('user/index.html.twig', ['user' => $user, 'levels' => $levels]);

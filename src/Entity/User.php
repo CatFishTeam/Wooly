@@ -20,12 +20,12 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Character", mappedBy="user_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Character", mappedBy="user", orphanRemoval=true)
      */
     private $characters;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Level", mappedBy="user_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\Level", mappedBy="user")
      */
     private $levels;
 
