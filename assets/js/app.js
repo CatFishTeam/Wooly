@@ -37,6 +37,7 @@ var vm = new Vue({
     }
 });
 
+//Display rating on levels
 $(function(){
     const levels = $(".levels .rateYo");
     Object.keys(levels).forEach(function(key) {
