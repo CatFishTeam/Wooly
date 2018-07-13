@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\WebSite;
 
+use App\Entity\Level;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,6 +13,16 @@ class WebSiteController extends Controller
      */
     public function index()
     {
+
+        $levels = $this->getDoctrine()
+            ->getRepository(Level::class)
+            ->findAll();
+
+        if (!$levels) {
+            throw $this->createNotFoundException(
+                'No level found'
+            );
+        }
         // 1. Using the shortcut method of the controller
 
         // Adding a success type message
@@ -24,7 +35,7 @@ class WebSiteController extends Controller
         // Adding an error type message
 //        $this->addFlash("error", "This is an error message");
 
-        return $this->render('website/home.html.twig');
+        return $this->render('website/home.html.twig', ['levels' => $levels]);
     }
 
 }

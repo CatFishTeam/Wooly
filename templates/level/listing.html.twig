@@ -6,8 +6,8 @@
             {% for level in levels %}
                 <div class="col-4 levels--level">
                     <div class="row">
-                        <a class="col-7"  href="/level/{{ level.id }}">
-                            <img src="{{ level.thumbnail }}" alt="{# {{ level.alt }} #}">
+                        <a class="col-7"  href="//game.wooly.cat/level/{{ level.slug }}" style="padding: 0">
+                            <img src="//editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}" style="height: 100%; object-fit: cover;">
                         </a>
                         <div class="col-5">
                             <h4> level.title </h4>

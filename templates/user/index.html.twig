@@ -6,11 +6,20 @@
         {{ dump(levels|length) }}
         {% if levels is not empty %}
         <div class="row">
-            <div class="col">
-                <h3>Level created by this user</h3>
-                {% for level in levels %}
-                {% endfor %}
-            </div>
+            <h3>Level created by this user</h3>
+            {% for level in levels %}
+                <div class="col-4">
+                    <div class="row" style="border: 2px solid yellow; border-radius: 25px; overflow: hidden">
+                        <a class="col-7"  href="//game.wooly.cat/level/{{ level.id }}" style="padding: 0">
+                            <img src="//editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}" style="height: 100%; object-fit: cover;">
+                        </a>
+                        <div class="col-5">
+                            <h4>{{ level.name }}</h4>
+                            <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
         {% endif %}
     </div>

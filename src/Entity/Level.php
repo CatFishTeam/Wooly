@@ -21,24 +21,24 @@ class Level
     private $id;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
-    private $data;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $best;
+    private $slug;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $thumbnail;
+    private $name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="json")
      */
-    private $status;
+    private $data;
+
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $best;
 
     /**
      * @ORM\Column(type="datetime")
@@ -58,7 +58,7 @@ class Level
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $finished;
+    private $won;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="levels", fetch="EAGER")
@@ -82,6 +82,28 @@ public function getId()
         return $this->id;
     }
 
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function setSlug($slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
     public function getData()
     {
         return $this->data;
@@ -102,30 +124,6 @@ public function getId()
     public function setBest($best): self
     {
         $this->best = $best;
-
-        return $this;
-    }
-
-    public function getThumbnail(): ?string
-    {
-        return $this->thumbnail;
-    }
-
-    public function setThumbnail(string $thumbnail): self
-    {
-        $this->thumbnail = $thumbnail;
-
-        return $this;
-    }
-
-    public function getStatus(): ?int
-    {
-        return $this->status;
-    }
-
-    public function setStatus(int $status): self
-    {
-        $this->status = $status;
 
         return $this;
     }
@@ -166,14 +164,14 @@ public function getId()
         return $this;
     }
 
-    public function getFinished(): ?int
+    public function getWon(): ?int
     {
-        return $this->finished;
+        return $this->won;
     }
 
-    public function setFinished(?int $finished): self
+    public function setWon(?int $won): self
     {
-        $this->finished = $finished;
+        $this->won = $won;
 
         return $this;
     }
