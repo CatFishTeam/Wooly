@@ -23,7 +23,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/profile/edit">Editer</a>
                         <div class="dropdown-divider"></div>
-                        <li class="dropdown-item"><a href="">Règles du jeu</a></li>
+                        <a class="dropdown-item" href="/rules">Règles du jeu</a>
                         <a class="dropdown-item" href="/logout">Deconnexion</a>
                     </div>
                 </li>
@@ -42,6 +42,7 @@
     let moon = document.querySelector('#moon');
 
     export default {
+        props: ['user'],
         data() {
             return {
                 colorDay: '#fff',
@@ -70,40 +71,22 @@
     }
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
+    nav
+        padding: 0 12%
+        position: relative
 
-    nav {
-        padding: 0 12%;
-        position: relative;
-    }
-
-    #menu {
-        margin: 20px 0;
-    }
-
-    #menu ul {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    #menu ul li {
-        list-style-type: none;
-    }
-
-    #menu ul li a {
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: 500;
-        color: #fff;
-    }
-
-    .greenline {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-        border-bottom: 1px solid  #AAD77B;
-    }
-
+    #menu
+        margin: 20px 0
+        ul
+            display: flex
+            justify-content: space-between
+            align-items: center
+            li
+                list-style-type: none
+                a:not(.dropdown-item)
+                    text-decoration: none
+                    text-transform: uppercase
+                    font-weight: 500
+                    color: #fff
 </style>
