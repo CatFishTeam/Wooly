@@ -1,8 +1,44 @@
-{% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-<div>
-    <input type="submit" value="{{ 'registration.submit'|trans }}" />
+
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <div class="card card-theme">
+                <div class="card-header text-white">
+                    <div class="card-header-title">
+                        Inscription
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="{{ path('fos_user_registration_register') }}"  method="POST">
+                        <div class="form-group" id="fos_user_registration_form">
+                            <label for="username">{{ 'Email'|trans }}</label>
+                            {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_errors(form.email) }}
+                            <br>
+                            <label for="username">{{ 'Username'|trans }}</label>
+                            {{ form_widget(form.username, { 'attr': {'class': 'form-control' } }) }}
+                            {{ form_errors(form.username) }}
+                            <br>
+                            <label for="username">{{ 'Password'|trans }}</label>
+                            {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_errors(form.plainPassword.first) }}
+                            <br>
+                            <label for="username">{{ 'Repeat Password'|trans }}</label>
+                            {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_errors(form.plainPassword.second) }}
+
+                            {{ form_rest(form) }}
+
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-lg btn-primary" type="submit" value="{{ 'Inscription' }}">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-{{ form_end(form) }}
