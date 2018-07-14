@@ -10,18 +10,20 @@
             <news></news>
         </div>
     </div>
+    <h2 class="mt-5">Les derniers niveaux</h2>
     <div class="row">
         {% for level in levels %}
-            <div class="col-md-4 col-sm-6">
-                <h2>{{ level.name }}</h2>
-                <div class="thumbnail">
-                    <img src="//editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}">
-                </div>
+            <div class="col-md-4 col-sm-6 home-level shadow-lg">
+                <a href="{{ url('levelIndex', {id: level.id}) }}">
+                    <h3>{{ level.name }}</h3>
+                    <div class="thumbnail">
+                        <img src="http://www.placehold.it/500x300" style="max-width: 160%; overflow: hidden;">
+                        {# <img src="//editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}" style="max-width: 160%; overflow: hidden;"> #}
+                    </div>
+                </a>
             </div>
         {% endfor %}
     </div>
-    <div class="row">
-        <p><a href="{{ path('levelListing') }}">Voir tous les niveaux</a></p>
-    </div>
+    <a href="{{ path('levelListing') }}" class="btn btn-primary">Voir tous les niveaux</a>
 </div>
 {% endblock %}
