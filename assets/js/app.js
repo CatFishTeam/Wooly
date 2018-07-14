@@ -49,3 +49,30 @@ $(function(){
         });
     });
 });
+
+//Display rating on single page level
+$(function(){
+    const level = $(".myRateYo");
+    let rating = $(level).data('rating')
+    level.rateYo({
+        ratedFill: "#e780d5",
+        rating: rating,
+        fullStar: true,
+    });
+    //Update Note //TODO PAS SAFE DU TOUT, ON CLICK SHOULD SEND A FORM WHERE YOU GET DATA OF USER AND LEVEL YOUR IN
+    //TODO UPDATE OR INSERT BUT NOT INSERT EACH TIME !
+    $(".myRateYo").on('click', function(){
+        $.ajax({
+            method: "POST",
+            url: "/saveNote",
+            data: {
+                rating: $(this).rateYo("option", "rating"),
+                level: $('.level_id').data('id'),
+                user: $('.user_id').data('id')
+            }
+        })
+        toastr.success('Votre note a été enregistrée');
+    })
+
+});
+
