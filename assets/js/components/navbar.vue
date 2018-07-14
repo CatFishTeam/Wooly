@@ -12,7 +12,7 @@
                     <a class="nav-link" href="/levels">Niveaux</a>
                 </li>
                 <li class="editor nav-item">
-                    <a href="">Éditeur</a>
+                    <a class="nav-link" href="https://editor.wooly.cat/">Éditeur</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
