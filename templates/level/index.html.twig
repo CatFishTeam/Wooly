@@ -7,8 +7,7 @@
                 <img src="//editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}">
             </div>
             <div class="col-5">
-                <h2> level.title </h2>
-                <p> level.description </p>
+                <h2> {{ level.name }} </h2>
                 {% if level.user is defined and level.user is not null %}
                     <p>Crée par <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a> à : {{ level.createdAt|date('h:m d-m-Y') }}</p>
                 {% else %}
@@ -24,6 +23,7 @@
                     <div class="hidden level_id" data-id="{{ level.id }}"></div>
                     <div class="hidden user_id" data-id="{{ user.id }}"></div>
                 {% endif %}
+                <a class="btn btn-primary"  href="//game.wooly.cat/level/{{ level.slug }}">JOUER</a>
             </div>
         </div>
     </div>
