@@ -30,4 +30,5 @@ easy_admin:
     entities:
         - App\Entity\User
         - App\Entity\Level
-        - App\Entity\Character
+        - App\Entity\Mark
+        #- App\Entity\Character

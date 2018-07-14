@@ -28,7 +28,7 @@ class Mark
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Level", inversedBy="marks")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Level", inversedBy="marks", fetch="EAGER")
      * @ORM\JoinColumn(name="level_id", referencedColumnName="id")
      */
     private $level;

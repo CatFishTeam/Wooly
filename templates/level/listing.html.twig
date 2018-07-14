@@ -13,7 +13,7 @@
                             <h4> level.title </h4>
                             <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a>
                             <p> level.description </p>
-                            <p class="rateYo" data-rating="1.6"></p>
+                            <p class="rateYo" data-rating="{{ level.score }}"></p>
                         </div>
                     </div>
                 </div>

@@ -43,7 +43,7 @@ var vm = new Vue({
 $(function(){
     const levels = $(".levels .rateYo");
     Object.keys(levels).forEach(function(key) {
-        let rating = $(levels[key]).data('rating')
+        let rating = $(levels[key]).data('rating');
         $(levels[key]).rateYo({
             ratedFill: "#e780d5",
             readOnly: true,
@@ -55,14 +55,13 @@ $(function(){
 //Display rating on single page level
 $(function(){
     const level = $(".myRateYo");
-    let rating = $(level).data('rating')
+    let rating = $(level).data('rating');
     level.rateYo({
         ratedFill: "#e780d5",
         rating: rating,
         fullStar: true,
     });
     //Update Note //TODO PAS SAFE DU TOUT, ON CLICK SHOULD SEND A FORM WHERE YOU GET DATA OF USER AND LEVEL YOUR IN
-    //TODO UPDATE OR INSERT BUT NOT INSERT EACH TIME !
     $(".myRateYo").on('click', function(){
         $.ajax({
             method: "POST",
@@ -77,4 +76,3 @@ $(function(){
     })
 
 });
-
