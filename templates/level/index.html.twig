@@ -9,7 +9,11 @@
             <div class="col-5">
                 <h2> level.title </h2>
                 <p> level.description </p>
-                <p>Create by {{ level.user.username }} at : {{ level.createdAt|date('h:m d-m-Y') }}</p>
+                {% if level.user is defined and level.user is not null %}
+                    <p>Crée par <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a> à : {{ level.createdAt|date('h:m d-m-Y') }}</p>
+                {% else %}
+                    Anonyme à : {{ level.createdAt|date('h:m d-m-Y') }}
+                {% endif %}
                 <p>Finished : {{ level.won }}/{{ level.played }}</p>
                 {% if app.user %}
                     {% if mark is not empty %}
