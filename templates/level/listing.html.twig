@@ -10,9 +10,12 @@
                             <img src="//editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}">
                         </a>
                         <div class="col-5">
-                            <h4> level.title </h4>
-                            <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a>
-                            <p> level.description </p>
+                            <h4> {{ level.name }} </h4>
+                            {% if level.user is defined and level.user is not null %}
+                                <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a>
+                            {% else %}
+                                Anonyme
+                            {% endif %}
                             <p class="rateYo" data-rating="{{ level.score }}"></p>
                         </div>
                     </div>
