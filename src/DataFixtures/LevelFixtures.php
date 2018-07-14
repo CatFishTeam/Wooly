@@ -15,18 +15,20 @@ class LevelFixtures extends Fixture  implements DependentFixtureInterface
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        $user = $manager->getRepository(User::class)->find(1);
-
         for ($i = 0; $i < 20; $i++) {
+            $user = $manager->getRepository(User::class)->find($faker->numberBetween(1, 10));
+            dump($user);
             $level = new Level();
             $level->setData("{}");
             $level->setBest("{}");
-            $level->setThumbnail("http://placehold.it/960x480");
-            $level->setStatus(0);
+            //$level->setThumbnail($faker->imageUrl(960, 480, 'cats'));
+            //$level->setStatus(0);
+            $level->setName("Level");
+            $level->setSlug("");
             $level->setCreatedAt($faker->dateTimeBetween($startDate = '-1 months', $endDate = 'now', $timezone = null));
             $level->setUpdatedAt($level->getCreatedAt());
             $level->setPlayed($faker->numberBetween(0, 100));
-            $level->setFinished($faker->numberBetween(0, 100));
+            $level->setWon($faker->numberBetween(0, 100));
             $level->setUserId($user);
 
             $manager->persist($level);
