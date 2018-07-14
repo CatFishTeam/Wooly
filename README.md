@@ -1,3 +1,5 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/CatFishTeam/Wooy-chat/badge.svg?targetFile=package.json)](https://snyk.io/test/github/CatFishTeam/Wooy-chat?targetFile=package.json)
+
 # Installation
 
   - Clone the project
