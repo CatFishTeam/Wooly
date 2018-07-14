@@ -49,7 +49,6 @@ class LevelController extends Controller
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->getRepository(Mark::class)->setScoreByUserAndLevel($user_id, $level_id, $score);
-
         exit;
     }
 }
