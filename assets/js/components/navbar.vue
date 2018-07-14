@@ -18,12 +18,13 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown" v-if="user">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ this.user }}
+                        {{ user }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/profile/edit">Editer</a>
-                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" :href="'/user/'+user">Voir profile</a>
                         <a class="dropdown-item" href="/rules">Règles du jeu</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/profile/edit">Editer profile</a>
                         <a class="dropdown-item" href="/logout">Deconnexion</a>
                     </div>
                 </li>
