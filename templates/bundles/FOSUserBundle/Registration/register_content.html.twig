@@ -12,20 +12,20 @@
                 <div class="card-body">
                     <form action="{{ path('fos_user_registration_register') }}"  method="POST">
                         <div class="form-group" id="fos_user_registration_form">
-                            <label for="username">{{ 'Email'|trans }}</label>
-                            {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+                            <label for="email">{{ 'Email'|trans }}</label>
+                            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'id': 'email'} }) }}
                             {{ form_errors(form.email) }}
                             <br>
                             <label for="username">{{ 'Username'|trans }}</label>
-                            {{ form_widget(form.username, { 'attr': {'class': 'form-control' } }) }}
+                            {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'id': 'username'}  }) }}
                             {{ form_errors(form.username) }}
                             <br>
-                            <label for="username">{{ 'Password'|trans }}</label>
-                            {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+                            <label for="password">{{ 'Password'|trans }}</label>
+                            {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'id': 'password'} }) }}
                             {{ form_errors(form.plainPassword.first) }}
                             <br>
-                            <label for="username">{{ 'Repeat Password'|trans }}</label>
-                            {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
+                            <label for="repeat_password">{{ 'Repeat Password'|trans }}</label>
+                            {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'id': 'repeat_password'} }) }}
                             {{ form_errors(form.plainPassword.second) }}
 
                             {{ form_rest(form) }}
