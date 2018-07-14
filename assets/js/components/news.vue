@@ -1,6 +1,6 @@
 <template>
     <div class="border rounded" id="news">
-        <p class="p-2">Quoi de neuf docetur ?</p>
+        <p class="p-2">Quoi de neuf docteur ?</p>
         <ul class="p-2">
             <li v-for="n in news">
                 <span>{{n.date}}</span> : {{ n.message }}
@@ -20,11 +20,11 @@
                     },
                     {
                         date: '15-07-2018',
-                        message: 'Sortie de l\'éditeur'
+                        message: 'Sortie de l\'éditeur, vous pouvez désormais tous participer à Wooly !'
                     },
                     {
                         date: '10-06-2018',
-                        message: 'Ouverture du site',
+                        message: 'Première mise en ligne et ouverture officielle du site',
                     }
                 ]
             }
