@@ -6,6 +6,8 @@ import Navbar from './components/navbar.vue'
 import News from './components/news.vue'
 import HommeSlider from './components/homme-slider.vue'
 
+import './modules/notes'
+
 flashAlerts.forEach(function(flashAlert){
     toastr[Object.keys(flashAlert)[0]](Object.values(flashAlert)[0])
 })

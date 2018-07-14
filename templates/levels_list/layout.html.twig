@@ -5,12 +5,13 @@
         <title>{% block title %}Wooly{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
-<<<<<<< Updated upstream:templates/layout.html.twig
-            <link rel="stylesheet" href="{{ asset('build/js/app.css') }}">
-=======
->>>>>>> Stashed changes:templates/website/layout.html.twig
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
         {% endblock %}
+        <style>
+            {% block style %}
+            {% endblock %}
+        </style>
     </head>
     <body>
         <script>

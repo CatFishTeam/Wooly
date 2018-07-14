@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class WebSiteController extends Controller
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="levels")
      */
     public function index()
     {
