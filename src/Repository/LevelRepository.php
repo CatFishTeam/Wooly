@@ -19,6 +19,15 @@ class LevelRepository extends ServiceEntityRepository
         parent::__construct($registry, Level::class);
     }
 
+    public function getGlobalNote(Level $level)
+    {
+        $sql = 'SELECT score FROM mark WHERE level_id = :level_id';
+        $params = array(
+            'level_id' => $level->getId(),
+        );
+        return $this->getEntityManager()->getConnection()->executeQuery($sql,$params)->fetchAll()   ;
+    }
+
 //    /**
 //     * @return Level[] Returns an array of Level objects
 //     */

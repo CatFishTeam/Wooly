@@ -196,18 +196,6 @@ public function getId()
         return $this->marks;
     }
 
-    /**
-     * @return Float
-     */
-    public function getGlobalNote(): Float
-    {
-        //TODO WHY IS IT EMPTY !!!!
-        dump($this->getMarks());
-        exit;
-        $globalNote = 1;
-        return $globalNote;
-    }
-
     public function addMark(Mark $mark): self
     {
         if (!$this->marks->contains($mark)) {
