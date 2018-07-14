@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Float_;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\LevelRepository")
@@ -194,6 +196,18 @@ public function getId()
     public function getMarks(): Collection
     {
         return $this->marks;
+    }
+
+    /**
+     * @return Float
+     */
+    public function getGlobalNote(): Float
+    {
+        //TODO WHY IS IT EMPTY !!!!
+        dump($this->getMarks());
+        exit;
+        $globalNote = 1;
+        return $globalNote;
     }
 
     public function addMark(Mark $mark): self
