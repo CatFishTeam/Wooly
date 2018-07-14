@@ -57,4 +57,15 @@ class MarkRepository extends ServiceEntityRepository
         );
         return $this->getEntityManager()->getConnection()->executeQuery($sql,$params)->fetchAll();
     }
+
+    public function setScoreByUserAndLevel($user_id, $level_id, $score)
+    {
+        $sql = 'INSERT INTO mark (user_id, level_id, score) VALUES (:user_id, :level_id, :score)';
+        $params = array(
+            'user_id' => $user_id,
+            'level_id' => $level_id,
+            'score' => $score
+        );
+        return $this->getEntityManager()->getConnection()->executeQuery($sql,$params);
+    }
 }
