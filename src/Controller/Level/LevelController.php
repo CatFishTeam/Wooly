@@ -21,7 +21,10 @@ class LevelController extends Controller
     {
         $user = $this->getUser();
         $entityManager = $this->getDoctrine()->getManager();
-        $mark = $entityManager->getRepository(Mark::class)->getScoreByUserAndLevel($user->getId(), $level->getId());
+        $mark = "";
+        if($user){
+            $mark = $entityManager->getRepository(Mark::class)->getScoreByUserAndLevel($user->getId(), $level->getId());
+        }
         return $this->render('level/index.html.twig', ['user' => $user, 'level' => $level, 'mark' => $mark]);
     }
 

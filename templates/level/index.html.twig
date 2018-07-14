@@ -4,13 +4,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-7">
-                <img src="{{ level.thumbnail }}" alt="???" >
+                <img src="//editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}">
             </div>
             <div class="col-5">
                 <h2> level.title </h2>
                 <p> level.description </p>
                 <p>Create by {{ level.user.username }} at : {{ level.createdAt|date('h:m d-m-Y') }}</p>
-                <p>Finished : {{ level.finished }}/{{ level.played }}</p>
+                <p>Finished : {{ level.won }}/{{ level.played }}</p>
                 {% if app.user %}
                     {% if mark is not empty %}
                             <div class="myRateYo" data-rating="{{ mark[0].score }}">Present</div>
