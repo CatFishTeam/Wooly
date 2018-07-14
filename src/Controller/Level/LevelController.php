@@ -2,6 +2,8 @@
 namespace App\Controller\Level;
 
 use App\Entity\Level;
+use App\Entity\Mark;
+use App\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,7 +16,10 @@ class LevelController extends Controller
      */
     public function index(Level $level)
     {
-        return $this->render('level/index.html.twig', ['level' => $level]);
+        $user = $this->getUser();
+        $entityManager = $this->getDoctrine()->getManager();
+        $mark = $entityManager->getRepository(Mark::class)->getScoreByUserAndLevel($user->getId(), $level->getId());
+        return $this->render('level/index.html.twig', ['user' => $user, 'level' => $level, 'mark' => $mark]);
     }
 
     /**

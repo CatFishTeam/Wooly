@@ -49,3 +49,16 @@ $(function(){
         });
     });
 });
+
+//Display rating on single page level
+$(function(){
+    const level = $(".myRateYo");
+    let rating = $(level).data('rating')
+    level.rateYo({
+        ratedFill: "#e780d5",
+        rating: rating,
+        onChange: function(){
+            console.log('coucou toi');
+        }
+    });
+});

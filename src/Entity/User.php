@@ -29,11 +29,17 @@ class User extends BaseUser
      */
     private $levels;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Mark", mappedBy="user")
+     */
+    private $marks;
+
     public function __construct()
     {
         parent::__construct();
         $this->characters = new ArrayCollection();
         $this->levels = new ArrayCollection();
+        $this->marks = new ArrayCollection();
         // your own logic
     }
 
@@ -93,6 +99,37 @@ class User extends BaseUser
             // set the owning side to null (unless already changed)
             if ($level->getUserId() === $this) {
                 $level->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Mark[]
+     */
+    public function getMarks(): Collection
+    {
+        return $this->marks;
+    }
+
+    public function addMark(Mark $mark): self
+    {
+        if (!$this->marks->contains($mark)) {
+            $this->marks[] = $mark;
+            $mark->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMark(Mark $mark): self
+    {
+        if ($this->marks->contains($mark)) {
+            $this->marks->removeElement($mark);
+            // set the owning side to null (unless already changed)
+            if ($mark->getUserId() === $this) {
+                $mark->setUserId(null);
             }
         }
 
