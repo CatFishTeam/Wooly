@@ -21,7 +21,6 @@
                         {{ this.user }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
                         <a class="dropdown-item" href="/profile/edit">Editer</a>
                         <div class="dropdown-divider"></div>
                         <li class="dropdown-item"><a href="">Règles du jeu</a></li>

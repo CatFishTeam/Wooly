@@ -20,22 +20,10 @@
         {% block body %}
             <div id="app">
                 <header-area></header-area>
-
-                <nav>
-                    <div id="menu">
-                        <ul>
-                            <li class="rules"><a href="{{ path('tutorial') }}">Règles du jeu</a></li>
-                            <li class="account"><a href="">Mon compte</a></li>
-                            <li class="play"><a href="{{ path('levelListing') }}">Jouer</a></li>
-                            <li class="editor"><a href="//editor.wooly.cat">Éditeur</a></li>
-                        </ul>
-                    </div>
-                    <div class="greenline"></div>
-                </nav>
-                {#<navbar#}
-                    {#user="{{ app.user }}"#}
-                    {#ref="navbar"#}
-                {#></navbar>#}
+                <navbar
+                    user="{{ app.user }}"
+                    ref="navbar"
+                ></navbar>
                 {% block content %}{% endblock %}
             </div>
         {% endblock %}
