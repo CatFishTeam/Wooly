@@ -32,6 +32,7 @@
     .sitetitle {
         font-size: 38px;
         margin-left: 30px;
+        font-weight: 600;
     }
 
     a {

@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/"></a>
+                    <a class="nav-link" href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/levels">Accueil</a>
@@ -15,7 +15,7 @@
                     <a class="nav-link" href="/levels">Niveaux</a>
                 </li>
                 <li class="editor nav-item">
-                    <a class="nav-link" href="https://editor.wooly.cat/">Éditeur</a>
+                    <a class="nav-link" href="https://editor.wooly.cat">Éditeur</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -24,10 +24,10 @@
                         {{ user }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" :href="'/user/'+user">Voir profile</a>
+                        <a class="dropdown-item" :href="'/user/'+user">Voir profil</a>
                         <a class="dropdown-item" href="/rules">Règles du jeu</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/profile/edit">Editer profile</a>
+                        <a class="dropdown-item" href="/profile/edit">Editer profil</a>
                         <a class="dropdown-item" href="/logout">Deconnexion</a>
                     </div>
                 </li>

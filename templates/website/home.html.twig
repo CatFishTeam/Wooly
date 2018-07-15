@@ -10,14 +10,15 @@
             <news></news>
         </div>
     </div>
-    <h2 class="mt-5">Derniers niveaux crées...</h2>
-    <div class="row">
+
+    <h2 class="mt-5">Derniers niveaux créés</h2>
+    <div class="row m-2 mt-5">
         {% for level in levels %}
-            <div class="col-md-4 col-sm-6 home-level shadow-lg">
+            <div class="col-md-4 col-sm-6 col-xs-12 mb-3 home-level shadow-lg">
                 <a href="{{ url('levelIndex', {id: level.id}) }}">
                     <h3>{{ level.name }}</h3>
                     <div class="thumbnail">
-                        <img src="//editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}"g>
+                        <img src="https://editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}"g>
                     </div>
                 </a>
             </div>
