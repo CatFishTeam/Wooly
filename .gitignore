@@ -68,3 +68,7 @@ docker/docker-compose.yml
 
 public/build/js/app.js
 public/build/manifest.json
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
