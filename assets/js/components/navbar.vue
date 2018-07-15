@@ -9,6 +9,9 @@
                     <a class="nav-link" href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/levels">Accueil</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/levels">Niveaux</a>
                 </li>
                 <li class="editor nav-item">
