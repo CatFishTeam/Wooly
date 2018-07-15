@@ -22,7 +22,6 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" :href="'/user/'+user">Voir profil</a>
-                        <a class="dropdown-item" href="/rules">Règles du jeu</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/profile/edit">Editer profil</a>
                         <a class="dropdown-item" href="/logout">Deconnexion</a>

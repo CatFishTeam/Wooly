@@ -12,19 +12,19 @@
                 <div class="card-body">
                     <form action="{{ path('fos_user_registration_register') }}"  method="POST">
                         <div class="form-group" id="fos_user_registration_form">
-                            <label for="username">{{ 'Email'|trans }}</label>
+                            <label for="email">{{ 'Email'|trans }}</label>
                             {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
                             {{ form_errors(form.email) }}
                             <br>
-                            <label for="username">{{ 'Username'|trans }}</label>
+                            <label for="username">{{ 'Nom d\'utilisateur'|trans }}</label>
                             {{ form_widget(form.username, { 'attr': {'class': 'form-control' } }) }}
                             {{ form_errors(form.username) }}
                             <br>
-                            <label for="username">{{ 'Password'|trans }}</label>
+                            <label for="password">{{ 'Mot de passe'|trans }}</label>
                             {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
                             {{ form_errors(form.plainPassword.first) }}
                             <br>
-                            <label for="username">{{ 'Repeat Password'|trans }}</label>
+                            <label for="confirmation">{{ 'Confirmation'|trans }}</label>
                             {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
                             {{ form_errors(form.plainPassword.second) }}
 
@@ -34,6 +34,7 @@
                         <div class="form-group">
                             <input class="btn btn-lg btn-primary" type="submit" value="{{ 'Inscription' }}">
                         </div>
+                        <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous</a>.</p>
                     </form>
                 </div>
             </div>

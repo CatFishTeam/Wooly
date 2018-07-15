@@ -9,11 +9,11 @@
             <div class="col-5">
                 <h2> {{ level.name }} </h2>
                 {% if level.user is defined and level.user is not null %}
-                    <p>Crée par <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a> à : {{ level.createdAt|date('h:m d-m-Y') }}</p>
+                    <p>Créé par <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a> à : {{ level.createdAt|date('h:m d-m-Y') }}</p>
                 {% else %}
-                    Anonyme à : {{ level.createdAt|date('h:m d-m-Y') }}
+                    <p>Créé par Anonyme à : {{ level.createdAt|date('h:m d-m-Y') }}
                 {% endif %}
-                <p>Finished : {{ level.won }}/{{ level.played }}</p>
+                <p>Nombre de fois fini / joué : {{ level.won }}/{{ level.played }}</p>
                 {% if app.user %}
                     {% if mark is not empty %}
                             <div class="myRateYo" data-rating="{{ mark[0].score }}">Present</div>
