@@ -19,7 +19,8 @@
         <!-- ###+ lexik/jwt-authentication-bundle ### -->
         <env name="JWT_SECRET_KEY" value="%kernel.project_dir%/config/jwt/private.pem"/>
         <env name="JWT_PUBLIC_KEY" value="%kernel.project_dir%/config/jwt/public.pem"/>
-        <env name="JWT_PASSPHRASE" value="fc7688e646d2e4dd8576094acc335100"/>
+        <!--<env name="JWT_PASSPHRASE" value="fc7688e646d2e4dd8576094acc335100"/>-->
+        <env name="JWT_PASSPHRASE" value="cb7e639c267789d6d0cf86d42877f1d3"/>
         <!-- ###- lexik/jwt-authentication-bundle ### -->
     </php>
 
