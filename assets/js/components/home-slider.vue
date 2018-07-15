@@ -2,19 +2,19 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="http://www.placehold.it/700x300" alt="">
+                <img src="https://www.placehold.it/700x300" alt="">
             </div>
             <div class="swiper-slide">
-                <img src="http://www.placehold.it/700x300" alt="">
+                <img src="https://www.placehold.it/700x300" alt="">
             </div>
             <div class="swiper-slide">
-                <img src="http://www.placehold.it/700x300" alt="">
+                <img src="https://www.placehold.it/700x300" alt="">
             </div>
             <div class="swiper-slide">
-                <img src="http://www.placehold.it/700x300" alt="">
+                <img src="https://www.placehold.it/700x300" alt="">
             </div>
             <div class="swiper-slide">
-                <img src="http://www.placehold.it/700x300" alt="">
+                <img src="https://www.placehold.it/700x300" alt="">
             </div>
         </div>
         <!-- Add Pagination -->
