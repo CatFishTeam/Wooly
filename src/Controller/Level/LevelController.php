@@ -10,6 +10,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
 class LevelController extends Controller
 {
     /**
@@ -26,9 +31,17 @@ class LevelController extends Controller
             $mark = $entityManager->getRepository(Mark::class)->getScoreByUserAndLevel($user->getId(), $level->getId());
         }
 
+        /* Test JSON */
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizers = array(new ObjectNormalizer());
 
-        dump(json_encode($user->getId()));
-        $hash = hash('ripemd160', $user->getId());
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonUser = $serializer->serialize($user, 'json');
+        dump($jsonUser);
+
+        $hash = hash('ripemd160', json_encode($user));
+        dump($hash);
+
         return $this->render('level/index.html.twig', ['user' => $user, 'level' => $level, 'mark' => $mark, 'hash' => $hash]);
     }
 
