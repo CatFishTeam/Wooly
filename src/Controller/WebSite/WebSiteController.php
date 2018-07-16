@@ -18,7 +18,11 @@ class WebSiteController extends Controller
             ->getRepository(Level::class)
             ->findBy([],['id' => 'ASC'], 6);
 
-        if (!$levels) {
+        $mostPlayedLevels = $this->getDoctrine()
+            ->getRepository(Level::class)
+            ->findBy([],['played' => 'DESC'], 5);
+
+        if (!$levels || !$mostPlayedLevels) {
             throw $this->createNotFoundException(
                 'No level found'
             );
@@ -42,7 +46,7 @@ class WebSiteController extends Controller
             $hash = hash('ripemd160', $user->getId());
         }
 
-        return $this->render('website/home.html.twig', ['levels' => $levels, 'hash' => $hash]);
+        return $this->render('website/home.html.twig', ['levels' => $levels, 'hash' => $hash, 'mostPlayedLevels' => $mostPlayedLevels]);
     }
 
 }
