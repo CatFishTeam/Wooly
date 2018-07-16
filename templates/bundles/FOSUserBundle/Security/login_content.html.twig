@@ -19,20 +19,21 @@
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                         {% endif %}
                         <div class="form-group">
-                            <label for="username">{{ 'security.login.username'|trans }}</label>
+                            <label for="username">Nom d'utilisateur</label>
                             <input class="form-control" id="username" name="_username" value="" required="required" autocomplete="username" type="text">
                         </div>
                         <div class="form-group">
-                            <label for="password">{{ 'security.login.password'|trans }}</label>
+                            <label for="password">Mot de passe</label>
                             <input class="form-control" id="password" name="_password" required="required" autocomplete="current-password" type="password">
                         </div>
                         <div class="form-group">
-                            <input class="btn btn-primary" id="_submit" name="_submit" value="Log in" type="submit">
+                            <input class="btn btn-primary" id="_submit" name="_submit" value="Se connecter" type="submit">
                         </div>
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="form-check-input"  id="remember_me" name="_remember_me" value="on">
-                            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                            <label for="remember_me">Se souvenir de moi</label>
                         </div>
+                        <p>Pas encore de compte ? <a href="/register">Créez-en un</a>.</p>
                     </form>
                 </div>
             </div>

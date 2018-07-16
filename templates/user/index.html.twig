@@ -2,24 +2,30 @@
 
 {% block content %}
     <div class="container-fluid">
-        User INFO
+        <h2>Profil de l'utilisateur</h2>
         {% if levels is not empty %}
-        <div class="row">
-            <h3>Level created by this user</h3>
-            {% for level in levels %}
-                <div class="col-4">
-                    <div class="row" style="border: 2px solid yellow; border-radius: 25px; overflow: hidden">
-                        <a class="col-7"  href="//game.wooly.cat/level/{{ level.id }}" style="padding: 0">
-                            <img src="//editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}" style="height: 100%; object-fit: cover;">
-                        </a>
-                        <div class="col-5">
-                            <h4>{{ level.name }}</h4>
-                            <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a>
+            <div class="row">
+                <h3>Level created by this user</h3>
+                {% for level in levels %}
+                    <div class="col-4">
+                        <div class="row" style="border: 2px solid yellow; border-radius: 25px; overflow: hidden">
+                            <a class="col-7"  href="https://game.wooly.cat/level/{{ level.id }}" style="padding: 0">
+                                <img src="http://editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}" style="height: 100%; object-fit: cover;">
+                            </a>
+                            <div class="col-5">
+                                <h4>{{ level.name }}</h4>
+                                <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a>
+                            </div>
                         </div>
                     </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col">
+                    <p>Cet utilisateur n'a pas encore créé de niveau.</p>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
         {% endif %}
     </div>
 {% endblock %}

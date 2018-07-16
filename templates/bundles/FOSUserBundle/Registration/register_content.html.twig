@@ -26,6 +26,7 @@
                             <br>
                             <label for="repeat_password">{{ 'Repeat Password'|trans }}</label>
                             {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'id': 'repeat_password'} }) }}
+
                             {{ form_errors(form.plainPassword.second) }}
 
                             {{ form_rest(form) }}
@@ -34,6 +35,7 @@
                         <div class="form-group">
                             <input class="btn btn-lg btn-primary" type="submit" value="{{ 'Inscription' }}">
                         </div>
+                        <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous</a>.</p>
                     </form>
                 </div>
             </div>

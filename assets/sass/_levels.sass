@@ -1,14 +1,19 @@
 .levels
-    &--level
-        .row
-            border: 2px solid yellow
-            border-radius: 25px
-            overflow: hidden
-        .col-5
-            flex-direction: column
-            text-align: center
-        .col-7
-            padding: 0
-            img
-                height: 100%
-                object-fit: cover
+  &--level
+    padding: 20px
+    .row
+      border-radius: 25px
+      overflow: hidden
+      &:hover
+        border: 1px solid rgba(0, 0, 0, 0.1)
+        border-radius: 10px
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1)
+    .col-5
+      flex-direction: column
+      text-align: center
+    .col-7
+      padding: 0
+      overflow: hidden
+      img
+        max-width: 150%
+        object-fit: cover

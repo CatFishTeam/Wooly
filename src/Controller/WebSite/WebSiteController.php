@@ -16,7 +16,7 @@ class WebSiteController extends Controller
 
         $levels = $this->getDoctrine()
             ->getRepository(Level::class)
-            ->findAll();
+            ->findBy([],['id' => 'ASC'], 6);
 
         if (!$levels) {
             throw $this->createNotFoundException(

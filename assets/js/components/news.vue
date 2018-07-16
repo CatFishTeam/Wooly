@@ -1,9 +1,9 @@
 <template>
-    <div class="border rounded p-2" id="news">
-        <p>Ceci est notre bar de news</p>
-        <ul>
+    <div class="border rounded" id="news">
+        <p class="p-2">Quoi de neuf docteur ?</p>
+        <ul class="p-2">
             <li v-for="n in news">
-                {{ n.message }}
+                <span>{{n.date}}</span> : {{ n.message }}
             </li>
         </ul>
     </div>
@@ -14,8 +14,18 @@
         data(){
             return{
                 news: [
-                    {message: 'Ouverture du site'},
-                    {message: 'Premiere navbar'}
+                    {
+                        date: '15-07-2018',
+                        message: 'Présentation officiel devant le jury de Cannes'
+                    },
+                    {
+                        date: '15-07-2018',
+                        message: 'Sortie de l\'éditeur, vous pouvez désormais tous participer à Wooly !'
+                    },
+                    {
+                        date: '10-06-2018',
+                        message: 'Première mise en ligne et ouverture officielle du site',
+                    }
                 ]
             }
         }

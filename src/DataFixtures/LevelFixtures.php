@@ -24,7 +24,7 @@ class LevelFixtures extends Fixture  implements DependentFixtureInterface
             //$level->setThumbnail($faker->imageUrl(960, 480, 'cats'));
             //$level->setStatus(0);
             $level->setName("Level");
-            $level->setSlug("");
+            $level->setSlug($faker->regexify('[A-Z0-9]{9}'));
             $level->setCreatedAt($faker->dateTimeBetween($startDate = '-1 months', $endDate = 'now', $timezone = null));
             $level->setUpdatedAt($level->getCreatedAt());
             $level->setPlayed($faker->numberBetween(0, 100));
