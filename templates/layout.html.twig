@@ -33,26 +33,25 @@
     {% endblock %}
     {% block javascripts %}
         <script src="{{ asset('build/js/app.js') }}"></script>
+        <script>
+            let userId = document.querySelector('#app').dataset.user;
+            console.log(userId);
+            if (!userId || userId === '') {
+                console.log("test");
+                deleteCookie('wooly_user_id');
+            } else {
+                setCookie('wooly_user_id', userId, 1);
+            }
+            console.log(document.cookie);
+
+            function setCookie(name, value, days) {
+                let d = new Date;
+                d.setTime(d.getTime() + 24*60*60*1000*days);
+                document.cookie = name + "=" + value + ";path=/;domain=wooly.cat;expires=" + d.toGMTString();
+            }
+
+            function deleteCookie(name) { setCookie(name, '', -1); }
+        </script>
     {% endblock %}
 </body>
 </html>
-
-<script>
-let userId = document.querySelector('#app').dataset.user;
-console.log(userId);
-if (!userId || userId === '') {
-    console.log("test");
-    deleteCookie('wooly_user_id');
-} else {
-    setCookie('wooly_user_id', userId, 1);
-}
-console.log(document.cookie);
-
-function setCookie(name, value, days) {
-    let d = new Date;
-    d.setTime(d.getTime() + 24*60*60*1000*days);
-    document.cookie = name + "=" + value + ";path=/;domain=wooly.cat;expires=" + d.toGMTString();
-}
-
-function deleteCookie(name) { setCookie(name, '', -1); }
-</script>
