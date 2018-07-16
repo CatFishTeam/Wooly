@@ -1,37 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Wooly{% endblock %}</title>
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
-            <link rel="stylesheet" href="{{ asset('build/js/app.css') }}">
-        {% endblock %}
-    </head>
-    <body>
-        <script>
-            let flashAlerts = [];
-            {% for type, messages in app.flashes %}
-                {% for message in messages %}
-                    flashAlerts.push( { ["{{ type }}"]: "{{ message }}" } );
-                {% endfor %}
-            {% endfor %}
-        </script>
-        {% block body %}
-            <div id="app">
-                <header-area></header-area>
-                <navbar
-                    user="{{ app.user }}"
-                    ref="navbar"
-                ></navbar>
-                {% block content %}{% endblock %}
-            </div>
-        {% endblock %}
-        {% block javascripts %}
-            <script src="{{ asset('build/js/app.js') }}"></script>
-        {% endblock %}
-    </body>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Wooly{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/js/app.css') }}">
+    {% endblock %}
+</head>
+<body>
 <script>
+    let flashAlerts = [];
+    {% for type, messages in app.flashes %}
+    {% for message in messages %}
+    flashAlerts.push( { ["{{ type }}"]: "{{ message }}" } );
+    {% endfor %}
+    {% endfor %}
+</script>
+{% block body %}
+{% if app.user.id is defined %}
+<div id="app" data-user="{{ app.user.id }}">
+    {% else %}
+    <div id="app" data-user="">
+        {% endif %}
+        <header-area></header-area>
+        <navbar
+                user="{{ app.user }}"
+                ref="navbar"
+        ></navbar>
+        {% block content %}{% endblock %}
+    </div>
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('build/js/app.js') }}"></script>
+    {% endblock %}
+</body>
+</html>
 
+<script>
+let userId = document.querySelector('#app').dataset.user;
+console.log(userId);
+if (!userId || userId === '') {
+    console.log("test");
+    deleteCookie('wooly_user_id');
+} else {
+    setCookie('wooly_user_id', userId, 1);
+}
+console.log(document.cookie);
+
+function setCookie(name, value, days) {
+    let d = new Date;
+    d.setTime(d.getTime() + 24*60*60*1000*days);
+    document.cookie = name + "=" + value + ";path=/;domain=wooly.cat;expires=" + d.toGMTString();
+}
+
+function deleteCookie(name) { setCookie(name, '', -1); }
 </script>
