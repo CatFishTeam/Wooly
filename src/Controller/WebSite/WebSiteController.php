@@ -35,7 +35,14 @@ class WebSiteController extends Controller
         // Adding an error type message
 //        $this->addFlash("error", "This is an error message");
 
-        return $this->render('website/home.html.twig', ['levels' => $levels]);
+
+        $user = $this->getUser();
+        $hash = '';
+        if (!empty($user)) {
+            $hash = hash('ripemd160', $user->getId());
+        }
+
+        return $this->render('website/home.html.twig', ['levels' => $levels, 'hash' => $hash]);
     }
 
 }
