@@ -6,7 +6,7 @@
             <div class="card card-theme">
                 <div class="card-header text-white">
                     <div class="card-header-title">
-                        Edit
+                        Edition du profil
                     </div>
                 </div>
                 <div class="card-body">
@@ -16,11 +16,11 @@
                             {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
                             {{ form_errors(form.email) }}
                             <br>
-                            <label>{{ 'Username'|trans }}</label>
+                            <label>{{ 'Nom d\'utilisateur'|trans }}</label>
                             {{ form_widget(form.username, { 'attr': {'class': 'form-control' } }) }}
                             {{ form_errors(form.username) }}
                             <br>
-                            <label>{{ 'Password'|trans }}</label>
+                            <label>{{ 'Mot de passe'|trans }}</label>
                             {{ form_widget(form.current_password, { 'attr': {'class': 'form-control'} }) }}
                             {{ form_errors(form.current_password) }}
 
@@ -28,7 +28,7 @@
 
                         </div>
                         <div class="form-group">
-                            <input class="btn btn-lg btn-primary" type="submit" value="{{ 'Update' }}">
+                            <input class="btn btn-lg btn-primary" type="submit" value="{{ 'Mettre à jour' }}">
                         </div>
                     </form>
                 </div>

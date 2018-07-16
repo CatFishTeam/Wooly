@@ -25,7 +25,7 @@
                         <a class="dropdown-item" :href="'/user/'+user">Voir profil</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/profile/edit">Editer profil</a>
-                        <a class="dropdown-item" href="/logout">Deconnexion</a>
+                        <a class="dropdown-item" href="/logout">Déconnexion</a>
                     </div>
                 </li>
                 <li class="nav-item" v-else>
