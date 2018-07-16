@@ -17,8 +17,7 @@ var vm = new Vue({
     components: {
         HeaderArea,
         Navbar,
-        News,
-        HomeSlider
+        News
     },
     computed: {
     },
@@ -75,4 +74,17 @@ $(function(){
         toastr.success('Votre note a été enregistrée');
     })
 
+});
+
+$(function () {
+    var mySwiper = new Swiper ('.swiper-container', {
+        // Optional parameters
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+    })
 });
