@@ -12,16 +12,16 @@
 <script>
     let flashAlerts = [];
     {% for type, messages in app.flashes %}
-    {% for message in messages %}
-    flashAlerts.push( { ["{{ type }}"]: "{{ message }}" } );
-    {% endfor %}
+        {% for message in messages %}
+            flashAlerts.push( { ["{{ type }}"]: "{{ message }}" } );
+        {% endfor %}
     {% endfor %}
 </script>
 {% block body %}
-{% if app.user.id is defined %}
-<div id="app" data-user="{{ app.user.id }}">
-    {% else %}
-    <div id="app" data-user="">
+        {% if app.user.id is defined %}
+            <div id="app" data-userid="{{ app.user.id }}" data-username="{{ app.user.username }}">
+        {% else %}
+            <div id="app" data-user="">
         {% endif %}
         <header-area></header-area>
         <navbar
@@ -34,15 +34,17 @@
     {% block javascripts %}
         <script src="{{ asset('build/js/app.js') }}"></script>
         <script>
-            let userId = document.querySelector('#app').dataset.user;
+            let userId = document.querySelector('#app').dataset.userid;
+            let userName = document.querySelector('#app').dataset.username;
             console.log(userId);
+            console.log(userName);
             if (!userId || userId === '') {
-                console.log("test");
                 deleteCookie('wooly_user_id');
+                deleteCookie('wooly_user_name');
             } else {
                 setCookie('wooly_user_id', userId, 1);
+                setCookie('wooly_user_name', userName, 1);
             }
-            console.log(document.cookie);
 
             function setCookie(name, value, days) {
                 let d = new Date;
