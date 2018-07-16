@@ -8,7 +8,9 @@
                 <div class="swiper-wrapper">
                     {% for level in mostPlayedLevels %}
                     <div class="swiper-slide">
-                        <img src="https://editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}">
+                        <a href="{{ url('levelIndex', {id: level.id}) }}">
+                            <img src="https://editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}">
+                        </a>
                     </div>
                     {% endfor %}
                 </div>
