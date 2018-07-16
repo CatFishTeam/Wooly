@@ -66,8 +66,18 @@ class LevelController extends Controller
             if($i != 0) $total = $total / $i;
             $level->score = $total;
         }
-        return $this->render('level/listing.html.twig', ['levels' => $levels]);
+
+        $bestLevels = $levels;
+
+        usort($bestLevels, function ($a, $b) {
+            return $a->score < $b->score;
+        });
+
+        $bestLevels = array_slice($bestLevels, 0, 6);
+
+        return $this->render('level/listing.html.twig', ['levels' => $levels, 'bestLevels' => $bestLevels]);
     }
+
 
     /**
      * @Route("/saveNote", name="saveNote")

@@ -2,6 +2,28 @@
 
 {% block content %}
     <div class="container-fluid">
+            <h3>Best levels</h3>
+            <div class="row levels m-3">
+                {% for level in bestLevels %}
+                    <div class="col-4 levels--level">
+                        <div class="row">
+                            <a class="col-7"  href="{{ url('levelIndex', {id: level.id}) }}">
+                                <img src="https://editor.wooly.cat/src/assets/screenshots/{{ level.slug }}.png" alt="{{ level.name }}">
+                            </a>
+                            <div class="col-5">
+                                <h4> {{ level.name }} </h4>
+                                {% if level.user is defined and level.user is not null %}
+                                    <a href="{{ url('userIndex', {usernameCanonical: level.user.usernameCanonical}) }}">{{ level.user.username }}</a>
+                                {% else %}
+                                    Anonyme
+                                {% endif %}
+                                <p class="rateYo" data-rating="{{ level.score }}"></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+        <h3>All levels</h3>
         <div class="row levels m-3">
             {% for level in levels %}
                 <div class="col-4 levels--level">
