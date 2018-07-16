@@ -16,7 +16,7 @@ class WebSiteController extends Controller
 
         $levels = $this->getDoctrine()
             ->getRepository(Level::class)
-            ->findBy([],['id' => 'ASC'], 6);
+            ->findBy([],['id' => 'DESC'], 6);
 
         $mostPlayedLevels = $this->getDoctrine()
             ->getRepository(Level::class)
