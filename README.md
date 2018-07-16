@@ -3,6 +3,8 @@
 # Installation
 
   - Clone the project
+  - Create folder "translations"
+  - In folder "docker", copy paste .env.dist in .env `(cp .env.dist .env)` 
   - Run `(cd docker && docker-compose up --build -d)` (You need to have Docker running)
   - Run `composer install && npm install && npm run dev`
   
