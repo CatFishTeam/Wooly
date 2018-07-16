@@ -26,10 +26,7 @@ class LevelController extends Controller
             $mark = $entityManager->getRepository(Mark::class)->getScoreByUserAndLevel($user->getId(), $level->getId());
         }
 
-
-        dump(json_encode($user->getId()));
-        $hash = hash('ripemd160', $user->getId());
-        return $this->render('level/index.html.twig', ['user' => $user, 'level' => $level, 'mark' => $mark, 'hash' => $hash]);
+        return $this->render('level/index.html.twig', ['user' => $user, 'level' => $level, 'mark' => $mark]);
     }
 
     /**

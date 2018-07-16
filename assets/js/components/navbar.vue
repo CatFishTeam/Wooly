@@ -12,7 +12,8 @@
                     <a class="nav-link" href="/levels">Niveaux</a>
                 </li>
                 <li class="editor nav-item">
-                    <a class="nav-link" href="https://editor.wooly.cat">Éditeur</a>
+                    <a v-if="hash" class="nav-link" :href="'https://editor.wooly.cat/?id=' + hash">Éditeur</a>
+                    <a v-else class="nav-link" href="https://editor.wooly.cat/">Éditeur</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -37,36 +38,14 @@
 </template>
 
 <script>
-    let body = document.querySelector('body');
-    let sun = document.querySelector('#sun');
-    let moon = document.querySelector('#moon');
 
     export default {
-        props: ['user'],
+        props: ['user', 'hash'],
         data() {
             return {
-                colorDay: '#fff',
-                colorNight: '#2c3e50',
-                current: '#fff',
-                colorSun: '#E7E19D',
-                colorMoon: '#D8E7F1'
             }
         },
         methods: {
-            changeLight: function () {
-                if (this.current === this.colorDay) {
-                    this.current = this.colorNight;
-                    TweenMax.to('#sun', 1, {morphSVG:'#moonCopy', ease:Bounce.easeOut, fill:this.colorMoon})
-                    style.href = 'stylesNight.css';
-                }
-                else {
-                    this.current = this.colorDay;
-                    TweenMax.to('#sun', 1, {morphSVG:'#sunCopy', ease:Bounce.easeOut, fill:this.colorSun})
-                    style.href = 'styles.css';
-                }
-                body.style.background = this.current
-                body.style.transitionDuration = '.3s';
-            }
         }
     }
 </script>
