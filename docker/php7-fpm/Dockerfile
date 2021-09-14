@@ -23,7 +23,7 @@ RUN docker-php-ext-install pdo pdo_mysql
 
 
 # install xdebug
-RUN pecl install xdebug
+RUN pecl install xdebug-2.6.0
 RUN docker-php-ext-enable xdebug
 RUN echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "display_startup_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
